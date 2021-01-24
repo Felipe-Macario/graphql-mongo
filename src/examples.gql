@@ -1,0 +1,65 @@
+//Category
+query GetCategories{
+  categories {
+    name,
+    description,
+    _id
+  }
+}
+
+query GetCategory {
+  category(id: "60075fb66563a43908f54694") {
+    name,
+    description,
+    _id
+  }
+}
+
+mutation CreateCategory{
+  createCategory (categoryInput: {
+    name: "Terror",
+    description: "Categoria de Terror",
+  })
+  { 
+    _id
+  }
+}
+
+mutation RemoveCategory{
+  removeCategory(id: "6007625a8d457d39a876fc93")
+}
+
+
+//Videos
+query GetVideos{
+  videos {
+    name,
+    description,
+    category { _id, name, description},
+    _id
+  }
+}
+
+query GetVideo{
+  video(id: "60075fdc6563a43908f54695") {
+    name,
+    description,
+    category { _id, description, name },
+    _id
+  }
+}
+
+mutation CreateVideo{
+  createVideo (videoInput: {
+    name: "Aterrorizante",
+    description: "Video de terror",
+    category: "60075fb66563a43908f54694"
+  })
+  {
+    _id
+  }
+}
+
+mutation RemoveVideo{
+  removeVideo (id: "6007609910954f2998cb654e")
+}
